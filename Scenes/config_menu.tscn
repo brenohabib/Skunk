@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cgfmxg3qm8ngs"]
+
+[node name="ConfigMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.0
+offset_top = -183.0
+offset_right = 357.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TopLabel" type="Label" parent="PanelContainer/Body"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/Body"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Video" type="VBoxContainer" parent="PanelContainer/Body/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/Body/TabContainer/Video"]
+layout_mode = 2
+columns = 2
+
+[node name="ResolutionLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="ResolutionDropButton" type="MenuButton" parent="PanelContainer/Body/TabContainer/Video/GridContainer"]
+layout_mode = 2
+text = "actual"
+item_count = 4
+popup/item_0/text = "0.25x"
+popup/item_1/text = "0.5x"
+popup/item_1/id = 1
+popup/item_2/text = "0.75x"
+popup/item_2/id = 2
+popup/item_3/text = "1x"
+popup/item_3/id = 3
+
+[node name="FPSLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FPS"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/Body/TabContainer/Video/GridContainer"]
+layout_mode = 2
+step = 5.0
+
+[node name="Audio" type="VBoxContainer" parent="PanelContainer/Body/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
