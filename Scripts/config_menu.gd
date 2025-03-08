@@ -42,8 +42,10 @@ func _on_resolution_selected(id: int) -> void:
 
     get_tree().root.content_scale_factor = get_viewport().size.x / target_resolution.x
 
-func _on_fps_changed(value: float) -> void:
+func _on_fps_changed(value: int) -> void:
     if value == 100:
+        Engine.max_fps = 0
         fps_count.get_child(1).text = "Unlimited"
         return
     fps_count.get_child(1).text = str(value + 60)
+    Engine.max_fps = value + 60
