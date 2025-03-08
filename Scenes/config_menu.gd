@@ -1,15 +1,20 @@
 extends Control
 
 @onready var resolution_drop_button: MenuButton = %ResolutionDropButton
+@onready var fps_count: VBoxContainer = %FPSCount
 
 func _ready() -> void:
     _setup_resolution_menu()
     resolution_drop_button.text = "1x"
+    fps_count.get_child(1).text = "60"
+    fps_count.get_child(0).value = 0
+    fps_count.get_child(0).connect("value_changed", _on_fps_changed)
+
     resolution_drop_button.get_popup().connect("id_pressed", _on_resolution_selected)
+
 
 func _setup_resolution_menu() -> void:
     var popup = resolution_drop_button.get_popup()
-    popup.clear()
     
     var options = get_screen_resolution_options()
     var index = 0
@@ -36,3 +41,9 @@ func _on_resolution_selected(id: int) -> void:
     var target_resolution = resolution_options[selected_text]
 
     get_tree().root.content_scale_factor = get_viewport().size.x / target_resolution.x
+
+func _on_fps_changed(value: float) -> void:
+    if value == 100:
+        fps_count.get_child(1).text = "Unlimited"
+        return
+    fps_count.get_child(1).text = str(value + 60)

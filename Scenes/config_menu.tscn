@@ -4,6 +4,7 @@
 
 [node name="ConfigMenu" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -13,14 +14,14 @@ script = ExtResource("1_2op2x")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.19
-anchor_top = 0.218
-anchor_right = 0.81
-anchor_bottom = 0.782
-offset_left = 0.11998
-offset_top = -0.264008
-offset_right = -0.120056
-offset_bottom = 0.263947
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.0
+offset_top = -183.0
+offset_right = 357.0
+offset_bottom = 183.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -52,14 +53,6 @@ text = "Resolution"
 unique_name_in_owner = true
 layout_mode = 2
 text = "actual"
-item_count = 4
-popup/item_0/text = "0.25x"
-popup/item_1/text = "0.5x"
-popup/item_1/id = 1
-popup/item_2/text = "0.75x"
-popup/item_2/id = 2
-popup/item_3/text = "1x"
-popup/item_3/id = 3
 
 [node name="FPSLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 layout_mode = 2
@@ -71,14 +64,15 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = -19
 
+[node name="HSlider" type="HSlider" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid/FPSCount"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+step = 5.0
+
 [node name="Label" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid/FPSCount"]
 layout_mode = 2
 text = "actual"
 horizontal_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid/FPSCount"]
-layout_mode = 2
-step = 5.0
 
 [node name="AnisotropicLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 layout_mode = 2
