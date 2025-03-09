@@ -93,29 +93,15 @@ text = "Anisotropic"
 unique_name_in_owner = true
 layout_mode = 2
 text = "actual"
-item_count = 4
-popup/item_0/text = "Disabled"
-popup/item_1/text = "2x"
-popup/item_1/id = 1
-popup/item_2/text = "4x"
-popup/item_2/id = 2
-popup/item_3/text = "8x"
-popup/item_3/id = 3
 
 [node name="VSyncLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 layout_mode = 2
 text = "VSync"
 
-[node name="VsyncDropButton" type="MenuButton" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
+[node name="VSyncDropButton" type="MenuButton" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "actual"
-item_count = 3
-popup/item_0/text = "disabled"
-popup/item_1/text = "enabled"
-popup/item_1/id = 1
-popup/item_2/text = "adaptative"
-popup/item_2/id = 2
 
 [node name="Audio" type="VBoxContainer" parent="PanelContainer/Body/TabContainer"]
 visible = false
