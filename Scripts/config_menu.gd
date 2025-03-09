@@ -3,6 +3,7 @@ extends Control
 @onready var resolution_drop_button: MenuButton = %ResolutionDropButton
 @onready var fps_count: VBoxContainer = %FPSCount
 @onready var vsync_drop_button: MenuButton = %VSyncDropButton
+@onready var show_fps_checkbox: CheckBox = %ShowFPSCheckBox
 
 # Constantes para opções de configuração
 const RESOLUTION_OPTIONS = {
@@ -34,6 +35,7 @@ func _ready() -> void:
 	# Conectar sinais dos menus
 	resolution_drop_button.get_popup().connect("id_pressed", _on_resolution_selected)
 	vsync_drop_button.get_popup().connect("id_pressed", _on_vsync_selected)
+	show_fps_checkbox.connect("toggled", _on_show_fps_toggled)
 
 # Função genéria para configurar um popup menu
 func _setup_menu(menu_button: MenuButton, options: Dictionary) -> void:
@@ -83,3 +85,6 @@ func _on_fps_changed(value: int) -> void:
 		return
 	fps_count.get_child(1).text = str(value + 60)
 	Engine.max_fps = value + 60
+
+func _on_show_fps_toggled(active: bool) -> void:
+	FpsCounter.visible = active
