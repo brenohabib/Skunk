@@ -22,13 +22,10 @@ const VSYNC_OPTIONS = {
 	"Adaptive": DisplayServer.VSYNC_ADAPTIVE,
 }
 
+# Esconde menu ao apertar ESC
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.is_action_pressed("ui_cancel"):
-			if self.is_visible():
-				self.hide()
-			else:
-				self.show()
+	if event is InputEventKey and event.is_action_pressed("ui_cancel"):
+		self.visible = !self.visible
 
 func _ready() -> void:
 	# Iniciação
