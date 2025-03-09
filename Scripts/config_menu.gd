@@ -6,6 +6,9 @@ extends Control
 @onready var vsync_drop_button: MenuButton = %VSyncDropButton
 @onready var show_fps_checkbox: CheckBox = %ShowFPSCheckBox
 
+@onready var master_audio_label: Label = %MasterAudioVBox.get_child(1)
+@onready var master_audio_slider: HSlider = %MasterAudioVBox.get_child(0)
+
 # Constantes para opções de configuração
 const RESOLUTION_OPTIONS = {
 	"1x": 1.0,
@@ -32,7 +35,12 @@ func _ready() -> void:
 	fps_label.text = "60"
 	fps_slider.value = 0
 	fps_slider.connect("value_changed", _on_fps_changed)
-	
+
+	# Configuração de audio
+	master_audio_slider.value = 100
+	master_audio_label.text = str(master_audio_slider.value)
+	master_audio_slider.connect("value_changed", _on_master_audio_changed)
+
 	# Conectar sinais dos menus
 	resolution_drop_button.get_popup().connect("id_pressed", _on_resolution_selected)
 	vsync_drop_button.get_popup().connect("id_pressed", _on_vsync_selected)
@@ -91,3 +99,9 @@ func _on_fps_changed(value: int) -> void:
 # Função para mostrar ou esconder o contador de FPS
 func _on_show_fps_toggled(active: bool) -> void:
 	FpsCounter.visible = active
+
+# Função para alterar o volume do audio
+func _on_master_audio_changed(value: int) -> void:
+	master_audio_label.text = str(value)
+	var volume_db = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_db)

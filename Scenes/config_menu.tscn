@@ -15,14 +15,14 @@ script = ExtResource("1_2op2x")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -357.0
-offset_top = -183.0
-offset_right = 357.0
-offset_bottom = 183.0
+anchor_left = 0.284
+anchor_top = 0.307
+anchor_right = 0.705
+anchor_bottom = 0.655
+offset_left = -108.168
+offset_top = -57.936
+offset_right = 120.84
+offset_bottom = 82.56
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -35,10 +35,13 @@ text = "SETTINGS"
 
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/Body"]
 layout_mode = 2
-current_tab = 0
+current_tab = 1
 
-[node name="Video" type="VBoxContainer" parent="PanelContainer/Body/TabContainer"]
+[node name="Video" type="MarginContainer" parent="PanelContainer/Body/TabContainer"]
+visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
 metadata/_tab_index = 0
 
 [node name="OptionsGrid" type="GridContainer" parent="PanelContainer/Body/TabContainer/Video"]
@@ -84,7 +87,6 @@ text = "Show FPS"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-focus_mode = 0
 button_pressed = true
 
 [node name="VSyncLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
@@ -94,9 +96,35 @@ text = "VSync"
 [node name="VSyncDropButton" type="MenuButton" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 2
 text = "actual"
 
-[node name="Audio" type="VBoxContainer" parent="PanelContainer/Body/TabContainer"]
-visible = false
+[node name="Audio" type="MarginContainer" parent="PanelContainer/Body/TabContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
 metadata/_tab_index = 1
+
+[node name="OptionsGrid" type="GridContainer" parent="PanelContainer/Body/TabContainer/Audio"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Body/TabContainer/Audio/OptionsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master"
+
+[node name="MasterAudioVBox" type="VBoxContainer" parent="PanelContainer/Body/TabContainer/Audio/OptionsGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = -19
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/Body/TabContainer/Audio/OptionsGrid/MasterAudioVBox"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+step = 5.0
+
+[node name="Label" type="Label" parent="PanelContainer/Body/TabContainer/Audio/OptionsGrid/MasterAudioVBox"]
+layout_mode = 2
+text = "actual"
+horizontal_alignment = 1
