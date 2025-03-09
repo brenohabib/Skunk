@@ -97,7 +97,6 @@ func _apply_resolution_scale(scale_factor: float) -> void:
 	get_tree().root.content_scale_factor = 1.0 / scale_factor
 
 func _apply_anisotropic_filter(level: int) -> void:
-	# No Godot 4.3, use as configurações de projeto para filtro anisotrópico
 	var params = ProjectSettings.get_setting("rendering/textures/default_filters")
 	if params == null:
 		params = {
