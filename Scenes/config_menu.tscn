@@ -53,6 +53,7 @@ text = "Resolution"
 [node name="ResolutionDropButton" type="MenuButton" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 2
 text = "actual"
 
 [node name="FPSLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
@@ -68,7 +69,6 @@ theme_override_constants/separation = -19
 [node name="HSlider" type="HSlider" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid/FPSCount"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-focus_mode = 0
 step = 5.0
 
 [node name="Label" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid/FPSCount"]
@@ -84,15 +84,6 @@ text = "Show FPS"
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-
-[node name="AnisotropicLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
-layout_mode = 2
-text = "Anisotropic"
-
-[node name="AnisotropicDropButton" type="MenuButton" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "actual"
 
 [node name="VSyncLabel" type="Label" parent="PanelContainer/Body/TabContainer/Video/OptionsGrid"]
 layout_mode = 2
