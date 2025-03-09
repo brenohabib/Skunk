@@ -9,7 +9,6 @@ const RESOLUTION_OPTIONS = {
 	"1x": 1.0,
 	"0.75x": 0.75,
 	"0.5x": 0.5,
-	"0.25x": 0.25
 }
 
 const VSYNC_OPTIONS = {
