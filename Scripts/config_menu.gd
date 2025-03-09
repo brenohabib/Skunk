@@ -1,7 +1,8 @@
 extends Control
 
 @onready var resolution_drop_button: MenuButton = %ResolutionDropButton
-@onready var fps_count: VBoxContainer = %FPSCount
+@onready var fps_slider: HSlider = %FPSCount.get_child(0)
+@onready var fps_label: Label = %FPSCount.get_child(1)
 @onready var vsync_drop_button: MenuButton = %VSyncDropButton
 @onready var show_fps_checkbox: CheckBox = %ShowFPSCheckBox
 
@@ -28,9 +29,9 @@ func _ready() -> void:
 	vsync_drop_button.text = "Enabled"
 	
 	# Configuração do FPS
-	fps_count.get_child(1).text = "60"
-	fps_count.get_child(0).value = 0
-	fps_count.get_child(0).connect("value_changed", _on_fps_changed)
+	fps_label.text = "60"
+	fps_slider.value = 0
+	fps_slider.connect("value_changed", _on_fps_changed)
 	
 	# Conectar sinais dos menus
 	resolution_drop_button.get_popup().connect("id_pressed", _on_resolution_selected)
@@ -78,13 +79,15 @@ func _apply_vsync_mode(mode: int) -> void:
 	# Configurar o modo de vsync
 	DisplayServer.window_set_vsync_mode(mode)
 
+# Função para alterar o limite de FPS
 func _on_fps_changed(value: int) -> void:
 	if value == 100:
 		Engine.max_fps = 0
-		fps_count.get_child(1).text = "Unlimited"
+		fps_label.text = "Unlimited"
 		return
-	fps_count.get_child(1).text = str(value + 60)
+	fps_label.text = str(value + 60)
 	Engine.max_fps = value + 60
 
+# Função para mostrar ou esconder o contador de FPS
 func _on_show_fps_toggled(active: bool) -> void:
 	FpsCounter.visible = active
