@@ -22,6 +22,14 @@ const VSYNC_OPTIONS = {
 	"Adaptive": DisplayServer.VSYNC_ADAPTIVE,
 }
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("ui_cancel"):
+			if self.is_visible():
+				self.hide()
+			else:
+				self.show()
+
 func _ready() -> void:
 	# Iniciação
 	_setup_resolution_menu()
