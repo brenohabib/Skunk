@@ -1,11 +1,9 @@
-# Estado de Pulo (JumpState.gd)
+# Estado de Queda (FallState.gd)
 extends State
 
 func enter_state() -> void:
-    # sprite.play("Jump")
-    print("JumpState: Entrando no estado")
-    character.velocity.y = -character.JUMP_VELOCITY
-    character.move_and_slide()  # Aplicar imediatamente
+    # sprite.play("Fall")
+    print("FallState: Entrando no estado")
 
 func physics_process_state(delta: float) -> void:
     apply_gravity(delta)
@@ -13,8 +11,6 @@ func physics_process_state(delta: float) -> void:
     character.move_and_slide()
 
 func check_transitions() -> String:
-    if character.velocity.y > 0:
-        return "FallState"
     if character.is_on_floor():
         if abs(character.velocity.x) > 10:
             return "MoveState"
