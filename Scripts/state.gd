@@ -43,7 +43,7 @@ func process_horizontal_movement(air_control := false) -> void:
 
 # Método comum para aplicar gravidade
 func apply_gravity(delta: float) -> void:
-    character.velocity.y += character.get_gravity().y * delta
+    character.velocity.y += (character.get_gravity().y) * delta
 
 func physics_process_state(_delta: float) -> void:
     pass

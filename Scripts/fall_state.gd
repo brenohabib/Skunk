@@ -6,7 +6,7 @@ func enter_state() -> void:
     print("FallState: Entrando no estado")
 
 func physics_process_state(delta: float) -> void:
-    apply_gravity(delta)
+    apply_gravity(delta * 1.7)
     process_horizontal_movement(true)  # true = controle aéreo
     character.move_and_slide()
 

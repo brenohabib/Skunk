@@ -5,7 +5,6 @@ func enter_state() -> void:
     # sprite.play("Jump")
     print("JumpState: Entrando no estado")
     character.velocity.y = -character.JUMP_VELOCITY
-    character.move_and_slide()  # Aplicar imediatamente
 
 func physics_process_state(delta: float) -> void:
     apply_gravity(delta)
