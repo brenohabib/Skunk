@@ -17,6 +17,3 @@ func physics_process_state(_delta: float) -> void:
 
 func input_state(_event: InputEvent) -> void:
 	pass
-
-func check_transitions() -> String:
-	return ""

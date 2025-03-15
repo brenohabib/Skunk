@@ -28,9 +28,6 @@ func _initialize_states() -> void:
 func _process(delta: float) -> void:
 	if current_state:
 		current_state.process_state(delta)
-		
-		# Verificar transições de estado
-		current_state.check_transitions()
 
 func _physics_process(delta: float) -> void:
 	if current_state:
