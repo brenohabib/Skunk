@@ -3,6 +3,8 @@ class_name State
 
 # Classe abstrata para os estados da state machine
 
+@onready var character: CharacterBody2D = get_node("../..")
+
 func enter_state() -> void:
 	pass
 
@@ -17,3 +19,6 @@ func physics_process_state(_delta: float) -> void:
 
 func input_state(_event: InputEvent) -> void:
 	pass
+
+func check_transitions() -> String:
+	return ""

@@ -1,7 +1,15 @@
 extends State
 
 func enter_state() -> void:
-	pass
+    print("JumpState: Entrando no estado")
 
 func physics_process_state(_delta: float) -> void:
-	pass
+    pass
+
+func check_transitions() -> String:
+    # Verificar transições existentes
+    if character.is_on_floor() and character.velocity.x > 0:
+        return "MoveState"
+    if character.is_on_floor():
+        return "IdleState"
+    return ""

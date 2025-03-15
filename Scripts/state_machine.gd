@@ -28,6 +28,11 @@ func _initialize_states() -> void:
 func _process(delta: float) -> void:
 	if current_state:
 		current_state.process_state(delta)
+		
+		# Verificar se há transições de estado
+		var new_state = current_state.check_transitions()
+		if new_state != "":
+			change_state(new_state)
 
 func _physics_process(delta: float) -> void:
 	if current_state:
