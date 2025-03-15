@@ -22,7 +22,7 @@ func process_state(_delta: float) -> void:
 
 # Método comum para processar a movimentação horizontal
 func process_horizontal_movement(air_control := false) -> void:
-    character.direction = Input.get_axis("ui_left", "ui_right")
+    character.direction = Input.get_axis("move_left", "move_right")
     
     if character.direction:
         # No chão: aceleração normal
