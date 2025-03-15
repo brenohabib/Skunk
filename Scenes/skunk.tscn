@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cye5rnubg8i8j" path="res://Source/Fall.png" id="2_ndpma"]
 [ext_resource type="Script" path="res://Scripts/state_machine.gd" id="3_ivhtt"]
 [ext_resource type="Texture2D" uid="uid://ds8ny1sgg5omd" path="res://Source/Idle1.png" id="3_ma4o4"]
-[ext_resource type="Texture2D" uid="uid://cnagbqdmmwqpm" path="res://Source/Jump.png" id="4_g03pt"]
+[ext_resource type="Texture2D" uid="uid://d1ei1r0lf67xo" path="res://Source/Jump.png" id="4_g03pt"]
 [ext_resource type="Script" path="res://Scripts/move_state.gd" id="4_k8bb4"]
 [ext_resource type="Texture2D" uid="uid://b0410q5tpi2cl" path="res://Source/Move.png" id="4_kpqgy"]
 [ext_resource type="Texture2D" uid="uid://2jkgdk5bhfmo" path="res://Source/Move1.png" id="5_h86ko"]
@@ -71,7 +71,7 @@ script = ExtResource("1_8r2ji")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_1uusx")
-animation = &"Fall"
+animation = &"Jump"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
