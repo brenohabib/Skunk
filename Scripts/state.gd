@@ -39,7 +39,7 @@ func process_horizontal_movement(air_control := false) -> void:
     
     # Atualiza a orientação do sprite
     if character.direction != 0:
-        sprite.flip_h = character.direction > 0
+        sprite.scale.x = -character.direction
 
 # Método comum para aplicar gravidade
 func apply_gravity(delta: float) -> void:
