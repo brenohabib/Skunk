@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://usmcruf2aevi"]
+[gd_scene load_steps=8 format=3 uid="uid://usmcruf2aevi"]
 
 [ext_resource type="Script" path="res://Scripts/skunk.gd" id="1_8r2ji"]
 [ext_resource type="Texture2D" uid="uid://kjlhljfwrqmd" path="res://Source/Gamba.png" id="1_fepl4"]
 [ext_resource type="Script" path="res://Scripts/state_machine.gd" id="3_ivhtt"]
+[ext_resource type="Script" path="res://Scripts/move_state.gd" id="4_k8bb4"]
+[ext_resource type="Script" path="res://Scripts/idle_state.gd" id="5_u5s85"]
+[ext_resource type="Script" path="res://Scripts/jump_state.gd" id="6_cee3s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yu7j"]
 radius = 7.0
@@ -22,7 +25,10 @@ shape = SubResource("CircleShape2D_4yu7j")
 script = ExtResource("3_ivhtt")
 
 [node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("4_k8bb4")
 
 [node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("5_u5s85")
 
 [node name="JumpState" type="Node" parent="StateMachine"]
+script = ExtResource("6_cee3s")

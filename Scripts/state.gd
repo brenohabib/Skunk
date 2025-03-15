@@ -1,8 +1,7 @@
 extends Node
 class_name State
 
-var state_machine: StateMachine
-var player: CharacterBody2D
+# Classe abstrata para os estados da state machine
 
 func enter_state() -> void:
 	pass

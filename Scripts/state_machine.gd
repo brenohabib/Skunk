@@ -5,14 +5,10 @@ class_name StateMachine
 signal state_changed(state_name: String)
 
 # Variáveis de estado
+@export
 var current_state: State
 var states: Dictionary = {}
 var previous_state: State
-
-var player: CharacterBody2D
-
-func _init(player_node: CharacterBody2D) -> void:
-	player = player_node
 
 func _ready() -> void:
 	# Inicializa os estados
@@ -27,8 +23,6 @@ func _initialize_states() -> void:
 	for child in get_children():
 		if child is State:
 			var state = child as State
-			state.state_machine = self
-			state.player = player
 			states[state.name] = state
 
 func _process(delta: float) -> void:
@@ -36,9 +30,7 @@ func _process(delta: float) -> void:
 		current_state.process_state(delta)
 		
 		# Verificar transições de estado
-		var new_state = current_state.check_transitions()
-		if new_state != "":
-			change_state(new_state)
+		current_state.check_transitions()
 
 func _physics_process(delta: float) -> void:
 	if current_state:
