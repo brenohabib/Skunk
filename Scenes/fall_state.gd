@@ -1,31 +1,32 @@
 extends State
 
 func enter_state() -> void:
-    print("JumpState: Entrando no estado")
-    character.velocity.x = 0
-    character.velocity.y = -character.JUMP_VELOCITY
+    print("FallState: Entrando no estado")
+
+func exit_state() -> void:
+    pass
 
 func physics_process_state(delta: float) -> void:
-    # Aplica gravidade
-    character.velocity.y += character.get_gravity().y * delta
+    character.velocity += character.get_gravity() * delta
     
-    # Controle horizontal durante o pulo
+    # Para permitir controle aéreo
     character.direction = Input.get_axis("ui_left", "ui_right")
     if character.direction:
         if character.velocity.x < character.SPEED and character.velocity.x > -character.SPEED:
             character.velocity.x += character.ACELERATION * character.direction
     else:
+        # Desaceleração no ar
         character.velocity.x = move_toward(character.velocity.x, 0, character.AIR_FRICTION)
-    
+        
     character.move_and_slide()
     
     if character.direction:
-        sprite.flip_h = character.direction > 0
+        sprite.flip_h = character.direction > 0  # Ajuste conforme a orientação do sprite
 
-# Verificar transições existentes
 func check_transitions() -> String:
-    if character.velocity.y > 0:
-        return "FallState"
     if character.is_on_floor():
-        return "IdleState"
+        if Input.get_axis("ui_left", "ui_right") != 0:
+            return "MoveState"
+        else:
+            return "IdleState"
     return ""

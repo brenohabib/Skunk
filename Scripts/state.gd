@@ -5,12 +5,12 @@ class_name State
 
 var state_machine: StateMachine
 var character: CharacterBody2D
-var sprite: Sprite2D
+var sprite: AnimatedSprite2D
 
 # Pega referência do player e seu sprite
 func initialize(character_node: CharacterBody2D) -> void:
 	self.character = character_node
-	self.sprite = character.get_node("Sprite2D")
+	self.sprite = character.get_node("AnimatedSprite2D")
 
 func enter_state() -> void:
 	pass
