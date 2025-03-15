@@ -23,6 +23,8 @@ func _initialize_states() -> void:
 	for child in get_children():
 		if child is State:
 			var state = child as State
+			state.state_machine = self
+			state.initialize(get_parent())
 			states[state.name] = state
 
 func _process(delta: float) -> void:

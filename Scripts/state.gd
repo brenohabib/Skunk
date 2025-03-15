@@ -3,7 +3,14 @@ class_name State
 
 # Classe abstrata para os estados da state machine
 
-@onready var character: CharacterBody2D = get_node("../..")
+var state_machine: StateMachine
+var character: CharacterBody2D
+var sprite: Sprite2D
+
+# Pega referência do player e seu sprite
+func initialize(character_node: CharacterBody2D) -> void:
+	self.character = character_node
+	self.sprite = character.get_node("Sprite2D")
 
 func enter_state() -> void:
 	pass

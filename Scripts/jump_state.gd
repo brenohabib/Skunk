@@ -4,7 +4,8 @@ func enter_state() -> void:
     print("JumpState: Entrando no estado")
 
 func physics_process_state(_delta: float) -> void:
-    pass
+    if character.direction:
+        sprite.flip_h = character.direction > 0
 
 func check_transitions() -> String:
     # Verificar transições existentes
