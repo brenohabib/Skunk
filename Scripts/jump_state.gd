@@ -2,7 +2,7 @@
 extends State
 
 func enter_state() -> void:
-    # sprite.play("Jump")
+    sprite.play("Jump")
     print("JumpState: Entrando no estado")
     character.velocity.y = -character.JUMP_VELOCITY
 

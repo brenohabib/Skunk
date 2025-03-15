@@ -2,7 +2,7 @@
 extends State
 
 func enter_state() -> void:
-    # sprite.play("Run")
+    sprite.play("Moving")
     print("MoveState: Entrando no estado")
 
 func physics_process_state(delta: float) -> void:
