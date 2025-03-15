@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://c7sueg17piq35"]
+[gd_scene load_steps=4 format=3 uid="uid://c7sueg17piq35"]
+
+[ext_resource type="PackedScene" uid="uid://usmcruf2aevi" path="res://Scenes/skunk.tscn" id="1_xfedl"]
+[ext_resource type="Texture2D" uid="uid://ck4xa7tyt0qja" path="res://icon.svg" id="2_fs5x2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dd2jb"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
+
+[node name="Camera2D" type="Camera2D" parent="Skunk"]
+zoom = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_dd2jb")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-84, -15)
+texture = ExtResource("2_fs5x2")
