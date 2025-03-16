@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Move2.png" id="6_jxdeo"]
 [ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
-[ext_resource type="Texture2D" uid="uid://dssjfv6socy5r" path="res://Source/lighto.png" id="10_o5k23"]
+[ext_resource type="Texture2D" uid="uid://cqrbec4qb8f38" path="res://Source/lightO6.png" id="10_sxala"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
 animations = [{
@@ -76,12 +76,11 @@ animation = &"Jump"
 autoplay = "Idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
-position = Vector2(1, 2)
-rotation = 3.14159
-scale = Vector2(2, 2)
+position = Vector2(-41, -8)
 energy = 0.0
-texture = ExtResource("10_o5k23")
+texture = ExtResource("10_sxala")
 offset = Vector2(15.4247, 11.4617)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)

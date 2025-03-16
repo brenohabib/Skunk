@@ -3,28 +3,29 @@
 [ext_resource type="PackedScene" uid="uid://usmcruf2aevi" path="res://Scenes/skunk.tscn" id="1_xfedl"]
 [ext_resource type="Texture2D" uid="uid://ck4xa7tyt0qja" path="res://icon.svg" id="2_fs5x2"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dd2jb"]
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v7gcl"]
 light_mode = 2
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dd2jb"]
+
 [node name="Main" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_v7gcl")
+position = Vector2(-30, -43)
+texture = ExtResource("2_fs5x2")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(-237, -64)
+texture = ExtResource("2_fs5x2")
+
+[node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
+position = Vector2(13, -21)
+
+[node name="Camera2D" type="Camera2D" parent="Skunk"]
+zoom = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_dd2jb")
-
-[node name="Icon" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_v7gcl")
-position = Vector2(-87, -21)
-texture = ExtResource("2_fs5x2")
-
-[node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
-
-[node name="Camera2D" type="Camera2D" parent="Skunk"]
-zoom = Vector2(3, 3)
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(14, -20)
-texture = ExtResource("2_fs5x2")
