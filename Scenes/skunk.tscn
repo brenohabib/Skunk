@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://usmcruf2aevi"]
+[gd_scene load_steps=18 format=3 uid="uid://usmcruf2aevi"]
 
 [ext_resource type="Script" path="res://Scripts/skunk.gd" id="1_8r2ji"]
 [ext_resource type="Texture2D" uid="uid://kjlhljfwrqmd" path="res://Source/Idle.png" id="2_6ttry"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Move2.png" id="6_jxdeo"]
 [ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
+[ext_resource type="Texture2D" uid="uid://bjlgey2vu56vr" path="res://Source/light2.png" id="10_n241y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
 animations = [{
@@ -73,6 +74,13 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_1uusx")
 animation = &"Jump"
 autoplay = "Idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-14, -1)
+rotation = 3.14159
+energy = 0.0
+texture = ExtResource("10_n241y")
+offset = Vector2(150, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
