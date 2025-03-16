@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7sueg17piq35"]
+[gd_scene load_steps=7 format=3 uid="uid://c7sueg17piq35"]
 
 [ext_resource type="PackedScene" uid="uid://usmcruf2aevi" path="res://Scenes/skunk.tscn" id="1_xfedl"]
 [ext_resource type="Texture2D" uid="uid://ck4xa7tyt0qja" path="res://icon.svg" id="2_fs5x2"]
+[ext_resource type="Texture2D" uid="uid://cvxe3hdlkb6k1" path="res://Source/mountains_b.png" id="3_ho03c"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v7gcl"]
 light_mode = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dd2jb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iv53d"]
+blend_mode = 1
 
 [node name="Main" type="Node2D"]
 
@@ -20,7 +24,7 @@ position = Vector2(-237, -64)
 texture = ExtResource("2_fs5x2")
 
 [node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
-position = Vector2(13, -21)
+position = Vector2(19, -30)
 
 [node name="Camera2D" type="Camera2D" parent="Skunk"]
 zoom = Vector2(3, 3)
@@ -29,3 +33,27 @@ zoom = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_dd2jb")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(94, 0)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.139569, 0.05896, 0.269531, 1)
+material = SubResource("CanvasItemMaterial_iv53d")
+position = Vector2(1179.53, -150.25)
+rotation = 3.14159
+scale = Vector2(4, 2.485)
+texture = ExtResource("3_ho03c")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(94, 0)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(156.5, -137.25)
+scale = Vector2(4, 2.14453)
+texture = ExtResource("3_ho03c")
