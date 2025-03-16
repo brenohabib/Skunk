@@ -7,16 +7,16 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
+
+[node name="Camera2D" type="Camera2D" parent="Skunk"]
+zoom = Vector2(3, 3)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_dd2jb")
 
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(-516, -39)
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-84, -15)
 texture = ExtResource("2_fs5x2")
-
-[node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
-
-[node name="Camera2D" type="Camera2D" parent="Skunk"]
-zoom = Vector2(3, 3)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://usmcruf2aevi"]
+[gd_scene load_steps=17 format=3 uid="uid://usmcruf2aevi"]
 
 [ext_resource type="Script" path="res://Scripts/skunk.gd" id="1_8r2ji"]
 [ext_resource type="Texture2D" uid="uid://kjlhljfwrqmd" path="res://Source/Idle.png" id="2_6ttry"]
@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Move2.png" id="6_jxdeo"]
 [ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
-[ext_resource type="Shader" path="res://Scenes/main.gdshader" id="15_rv7ms"]
-[ext_resource type="Texture2D" uid="uid://chk50af1aqxju" path="res://Source/cone.png" id="16_8kbnf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
 animations = [{
@@ -64,9 +62,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bh0er"]
-shader = ExtResource("15_rv7ms")
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yu7j"]
 radius = 7.0
 
@@ -78,14 +73,6 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_1uusx")
 animation = &"Jump"
 autoplay = "Idle"
-
-[node name="Icon" type="Sprite2D" parent="AnimatedSprite2D"]
-material = SubResource("ShaderMaterial_bh0er")
-position = Vector2(-16, 9.53674e-07)
-rotation = -3.14159
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("16_8kbnf")
-offset = Vector2(1750, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
