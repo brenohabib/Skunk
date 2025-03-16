@@ -5,7 +5,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dd2jb"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jgcie"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v7gcl"]
 light_mode = 2
 
 [node name="Main" type="Node2D"]
@@ -16,11 +16,15 @@ light_mode = 2
 shape = SubResource("WorldBoundaryShape2D_dd2jb")
 
 [node name="Icon" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_jgcie")
-position = Vector2(-84, -15)
+material = SubResource("CanvasItemMaterial_v7gcl")
+position = Vector2(-87, -21)
 texture = ExtResource("2_fs5x2")
 
 [node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
 
 [node name="Camera2D" type="Camera2D" parent="Skunk"]
 zoom = Vector2(3, 3)
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(14, -20)
+texture = ExtResource("2_fs5x2")
