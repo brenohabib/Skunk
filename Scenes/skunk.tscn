@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Move2.png" id="6_jxdeo"]
 [ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
-[ext_resource type="Texture2D" uid="uid://bex2redkkqexu" path="res://Source/mm6.png" id="10_lrpa3"]
+[ext_resource type="Texture2D" uid="uid://c3u2yk7xmxgh6" path="res://Source/mmss.png" id="10_geyxx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
 animations = [{
@@ -78,7 +78,7 @@ autoplay = "Idle"
 [node name="Cone" type="PointLight2D" parent="AnimatedSprite2D"]
 position = Vector2(-9, 0)
 energy = 0.0
-texture = ExtResource("10_lrpa3")
+texture = ExtResource("10_geyxx")
 offset = Vector2(-16.5753, 3.4617)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
