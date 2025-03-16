@@ -14,7 +14,7 @@ func physics_process_state(delta: float) -> void:
 func check_transitions() -> String:
     if character.velocity.y > 0:
         return "FallState"
-    if character.is_on_floor():
+    if character.is_on_floor() and character.velocity.y >= 0:
         if abs(character.velocity.x) > 10:
             return "MoveState"
         else:
