@@ -29,15 +29,15 @@ func change_state(new_state_name: String) -> void:
 func _process(delta: float) -> void:
     if current_state:
         current_state.process_state(delta)
+        
+    # Verificar transições
+        var new_state = current_state.check_transitions()
+        if new_state != "":
+            change_state(new_state)
 
 func _physics_process(delta: float) -> void:
     if current_state:
         current_state.physics_process_state(delta)
-        
-        # Verificar transições
-        var new_state = current_state.check_transitions()
-        if new_state != "":
-            change_state(new_state)
 
 func _input(event: InputEvent) -> void:
     if current_state:

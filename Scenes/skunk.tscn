@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Move2.png" id="6_jxdeo"]
 [ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
-[ext_resource type="Texture2D" uid="uid://c3u2yk7xmxgh6" path="res://Source/mmss.png" id="10_geyxx"]
+[ext_resource type="Texture2D" uid="uid://c3u2yk7xmxgh6" path="res://Source/Vision2.png" id="10_geyxx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
 animations = [{
@@ -67,6 +67,7 @@ animations = [{
 radius = 7.0
 
 [node name="Skunk" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8r2ji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
