@@ -24,7 +24,7 @@ ConfigMenu="*res://Scenes/config_menu.tscn"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="ignore"
 
 [dotnet]
 
