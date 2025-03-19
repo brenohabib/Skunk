@@ -1,0 +1,97 @@
+[gd_scene load_steps=20 format=3 uid="uid://bvh5tsh54ky6j"]
+
+[ext_resource type="Texture2D" uid="uid://dm1df8appgxkd" path="res://Source/Sunny/Environments/Day-Platformer/PNG/trees.png" id="1_s2vbe"]
+[ext_resource type="Texture2D" uid="uid://dq55qeoeu0xox" path="res://Source/Sunny/Environments/Day-Platformer/PNG/tileset.png" id="2_2shye"]
+[ext_resource type="Texture2D" uid="uid://k23h3hjao12y" path="res://Source/Sunny/Environments/Day-Platformer/PNG/sky.png" id="3_udsbu"]
+[ext_resource type="Texture2D" uid="uid://c3chssbuohukl" path="res://Source/Sunny/Environments/Day-Platformer/PNG/clouds.png" id="4_ubqt2"]
+[ext_resource type="Texture2D" uid="uid://nksfrf0bwlg7" path="res://Source/Sunny/Environments/Day-Platformer/Preview.png" id="5_mm1qr"]
+[ext_resource type="Texture2D" uid="uid://8h8utgdt3yv5" path="res://Source/Sunny/Environments/Fort of Illusion/Fort of Illusion Files/Layers/all-props.png" id="6_kxdkc"]
+[ext_resource type="Texture2D" uid="uid://dp7gb27vjsild" path="res://Source/Sunny/Environments/Fort of Illusion/Fort of Illusion Files/Layers/tileset.png" id="7_77br1"]
+[ext_resource type="Texture2D" uid="uid://dh6k057vv4b2t" path="res://Source/Sunny/Environments/Modular-tileset/layers/modular-tileset.png" id="8_hn7bk"]
+[ext_resource type="Texture2D" uid="uid://cyx5asc3erobx" path="res://Source/Sunny/Environments/Modular-tileset/layers/modular-tileset-sky.png" id="9_l7x0p"]
+[ext_resource type="Texture2D" uid="uid://cptq5w14edmiv" path="res://Source/Sunny/Environments/Rocky Tileset/PNG/layers/rocky-tileset.png" id="10_mxrym"]
+[ext_resource type="Texture2D" uid="uid://bihi0x3dnmfha" path="res://Source/Sunny/Environments/Winter/Layers/tileset.png" id="11_ofn8j"]
+[ext_resource type="Texture2D" uid="uid://bfpderhaepn8j" path="res://Source/Sunny/Environments/Winter/Props/prop-sheet.png" id="12_pmbbr"]
+[ext_resource type="Texture2D" uid="uid://lx361ws54nro" path="res://Source/Legacy/Environments/colorful-tileset/PNG/preview-colorful-tileset.png" id="13_8eyva"]
+[ext_resource type="Texture2D" uid="uid://dnohan3bfnu0e" path="res://Source/Legacy/Environments/colorful-tileset/PNG/layers/tile-set.png" id="14_7vtas"]
+[ext_resource type="Texture2D" uid="uid://c8wsbu1yohl7i" path="res://Source/Legacy/Environments/colorful-tileset/PNG/layers/cloud.png" id="15_1k854"]
+[ext_resource type="Texture2D" uid="uid://chkagahxwabpj" path="res://Source/Legacy/Environments/colorful-tileset/PNG/layers/background-sky.png" id="16_5mj27"]
+[ext_resource type="Texture2D" uid="uid://d1olgpcl2durm" path="res://Source/Legacy/Environments/colorful-tileset/PNG/layers/back-vegetation.png" id="17_20uep"]
+[ext_resource type="Texture2D" uid="uid://bc5lmh3bsm8l2" path="res://Source/Legacy/Misc/gems/spritesheets/gems-spritesheet.png" id="18_sxwo0"]
+[ext_resource type="Texture2D" uid="uid://biqghex55eg87" path="res://Source/Legacy/Misc/gems/spritesheets/stage-tileset.png" id="19_c1yc7"]
+
+[node name="Trees" type="Sprite2D"]
+position = Vector2(12, 121)
+texture = ExtResource("1_s2vbe")
+
+[node name="Tileset" type="Sprite2D" parent="."]
+position = Vector2(19, 180)
+texture = ExtResource("2_2shye")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(-276, 37)
+texture = ExtResource("3_udsbu")
+
+[node name="Clouds" type="Sprite2D" parent="."]
+position = Vector2(-298, -138)
+texture = ExtResource("4_ubqt2")
+
+[node name="Preview" type="Sprite2D" parent="."]
+position = Vector2(-477, 292)
+texture = ExtResource("5_mm1qr")
+
+[node name="All-props" type="Sprite2D" parent="."]
+position = Vector2(538, 129)
+texture = ExtResource("6_kxdkc")
+
+[node name="Tileset2" type="Sprite2D" parent="."]
+position = Vector2(528, 335)
+texture = ExtResource("7_77br1")
+
+[node name="Modular-tileset" type="Sprite2D" parent="."]
+position = Vector2(7, 444)
+texture = ExtResource("8_hn7bk")
+
+[node name="Modular-tileset-sky" type="Sprite2D" parent="."]
+position = Vector2(-15, 726)
+texture = ExtResource("9_l7x0p")
+
+[node name="Rocky-tileset" type="Sprite2D" parent="."]
+position = Vector2(-306, 584)
+texture = ExtResource("10_mxrym")
+
+[node name="Tileset3" type="Sprite2D" parent="."]
+position = Vector2(353, 676)
+texture = ExtResource("11_ofn8j")
+
+[node name="Prop-sheet" type="Sprite2D" parent="."]
+position = Vector2(751, 657)
+texture = ExtResource("12_pmbbr")
+
+[node name="Preview-colorful-tileset" type="Sprite2D" parent="."]
+position = Vector2(-364, 824)
+texture = ExtResource("13_8eyva")
+
+[node name="Tile-set" type="Sprite2D" parent="."]
+position = Vector2(-386, 1013)
+texture = ExtResource("14_7vtas")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(-589, 1013)
+texture = ExtResource("15_1k854")
+
+[node name="Background-sky" type="Sprite2D" parent="."]
+position = Vector2(-507, 1018)
+texture = ExtResource("16_5mj27")
+
+[node name="Back-vegetation" type="Sprite2D" parent="."]
+position = Vector2(-747, 1050)
+texture = ExtResource("17_20uep")
+
+[node name="Gems-spritesheet" type="Sprite2D" parent="."]
+position = Vector2(213, 991)
+texture = ExtResource("18_sxwo0")
+
+[node name="Stage-tileset" type="Sprite2D" parent="."]
+position = Vector2(177, 1194)
+texture = ExtResource("19_c1yc7")

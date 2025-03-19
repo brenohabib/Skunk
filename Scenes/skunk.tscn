@@ -1,20 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://usmcruf2aevi"]
+[gd_scene load_steps=21 format=3 uid="uid://usmcruf2aevi"]
 
 [ext_resource type="Script" path="res://Scripts/skunk.gd" id="1_8r2ji"]
-[ext_resource type="Texture2D" uid="uid://kjlhljfwrqmd" path="res://Source/Idle.png" id="2_6ttry"]
-[ext_resource type="Texture2D" uid="uid://cye5rnubg8i8j" path="res://Source/Fall.png" id="2_ndpma"]
+[ext_resource type="Texture2D" uid="uid://kjlhljfwrqmd" path="res://Source/Skunk/Idle.png" id="2_6ttry"]
+[ext_resource type="Texture2D" uid="uid://cye5rnubg8i8j" path="res://Source/Skunk/Fall.png" id="2_ndpma"]
 [ext_resource type="Script" path="res://Scripts/state_machine.gd" id="3_ivhtt"]
-[ext_resource type="Texture2D" uid="uid://ds8ny1sgg5omd" path="res://Source/Idle1.png" id="3_ma4o4"]
-[ext_resource type="Texture2D" uid="uid://d1ei1r0lf67xo" path="res://Source/Jump.png" id="4_g03pt"]
+[ext_resource type="Texture2D" uid="uid://ds8ny1sgg5omd" path="res://Source/Skunk/Idle1.png" id="3_ma4o4"]
+[ext_resource type="Texture2D" uid="uid://d1ei1r0lf67xo" path="res://Source/Skunk/Jump.png" id="4_g03pt"]
 [ext_resource type="Script" path="res://Scripts/move_state.gd" id="4_k8bb4"]
-[ext_resource type="Texture2D" uid="uid://b0410q5tpi2cl" path="res://Source/Move.png" id="4_kpqgy"]
-[ext_resource type="Texture2D" uid="uid://2jkgdk5bhfmo" path="res://Source/Move1.png" id="5_h86ko"]
+[ext_resource type="Texture2D" uid="uid://b0410q5tpi2cl" path="res://Source/Skunk/Move.png" id="4_kpqgy"]
+[ext_resource type="Texture2D" uid="uid://2jkgdk5bhfmo" path="res://Source/Skunk/Move1.png" id="5_h86ko"]
 [ext_resource type="Script" path="res://Scripts/idle_state.gd" id="5_u5s85"]
 [ext_resource type="Script" path="res://Scripts/jump_state.gd" id="6_cee3s"]
-[ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Move2.png" id="6_jxdeo"]
-[ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Move3.png" id="7_4seqw"]
+[ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Skunk/Move2.png" id="6_jxdeo"]
+[ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Skunk/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
-[ext_resource type="Texture2D" uid="uid://c3u2yk7xmxgh6" path="res://Source/Vision2.png" id="10_geyxx"]
+[ext_resource type="Texture2D" uid="uid://bqtv7iide73q7" path="res://Source/6e8d553c9819ec75fd221cfbf064f84f78fd9c4a.png" id="10_yeksd"]
+[ext_resource type="Script" path="res://Scripts/cast_shadow.gd" id="16_x3arh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
 animations = [{
@@ -66,21 +67,57 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yu7j"]
 radius = 7.0
 
-[node name="Skunk" type="CharacterBody2D"]
+[sub_resource type="Gradient" id="Gradient_pqw6p"]
+colors = PackedColorArray(0, 0, 0, 0.517647, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_avlx7"]
+gradient = SubResource("Gradient_pqw6p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Skunk" type="CharacterBody2D" node_paths=PackedStringArray("red_glass", "green_glass", "blue_glass")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8r2ji")
+red_glass = NodePath("AnimatedSprite2D/RedGlasses")
+green_glass = NodePath("AnimatedSprite2D/GreenGlasses")
+blue_glass = NodePath("AnimatedSprite2D/BlueGlasses")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 8
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_1uusx")
 animation = &"Jump"
 autoplay = "Idle"
 
-[node name="Cone" type="PointLight2D" parent="AnimatedSprite2D"]
-position = Vector2(-9, 0)
-energy = 0.0
-texture = ExtResource("10_geyxx")
+[node name="RedGlasses" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(17, 12)
+color = Color(1, 0, 0, 1)
+energy = 3.0
+blend_mode = 2
+texture = ExtResource("10_yeksd")
 offset = Vector2(-16.5753, 3.4617)
+texture_scale = 0.6
+
+[node name="GreenGlasses" type="PointLight2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(17, 12)
+color = Color(0, 1, 0, 1)
+energy = 3.0
+blend_mode = 2
+texture = ExtResource("10_yeksd")
+offset = Vector2(-16.5753, 3.4617)
+texture_scale = 0.6
+
+[node name="BlueGlasses" type="PointLight2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(17, 12)
+color = Color(0, 0.390625, 1, 1)
+energy = 3.0
+blend_mode = 2
+texture = ExtResource("10_yeksd")
+offset = Vector2(-16.5753, 3.4617)
+texture_scale = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
@@ -100,3 +137,12 @@ script = ExtResource("6_cee3s")
 
 [node name="FallState" type="Node" parent="StateMachine"]
 script = ExtResource("8_taaf3")
+
+[node name="CastShadow" type="Node2D" parent="."]
+script = ExtResource("16_x3arh")
+
+[node name="RayCast2D" type="RayCast2D" parent="CastShadow"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CastShadow"]
+scale = Vector2(0.59375, 0.109375)
+texture = SubResource("GradientTexture2D_avlx7")
