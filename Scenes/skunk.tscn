@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uu5bypd8ohvf" path="res://Source/Skunk/Move2.png" id="6_jxdeo"]
 [ext_resource type="Texture2D" uid="uid://bf2mxg1msl0uy" path="res://Source/Skunk/Move3.png" id="7_4seqw"]
 [ext_resource type="Script" path="res://Scripts/fall_state.gd" id="8_taaf3"]
-[ext_resource type="Texture2D" uid="uid://bqtv7iide73q7" path="res://Source/6e8d553c9819ec75fd221cfbf064f84f78fd9c4a.png" id="10_yeksd"]
+[ext_resource type="Texture2D" uid="uid://c0qcrxt6fe2ka" path="res://Source/luz.png" id="10_7nkp3"]
 [ext_resource type="Script" path="res://Scripts/cast_shadow.gd" id="16_x3arh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uusx"]
@@ -93,31 +93,28 @@ autoplay = "Idle"
 [node name="RedGlasses" type="PointLight2D" parent="AnimatedSprite2D"]
 position = Vector2(17, 12)
 color = Color(1, 0, 0, 1)
-energy = 3.0
 blend_mode = 2
-texture = ExtResource("10_yeksd")
+texture = ExtResource("10_7nkp3")
 offset = Vector2(-16.5753, 3.4617)
-texture_scale = 0.6
+texture_scale = 1.5
 
 [node name="GreenGlasses" type="PointLight2D" parent="AnimatedSprite2D"]
 visible = false
 position = Vector2(17, 12)
 color = Color(0, 1, 0, 1)
-energy = 3.0
 blend_mode = 2
-texture = ExtResource("10_yeksd")
+texture = ExtResource("10_7nkp3")
 offset = Vector2(-16.5753, 3.4617)
-texture_scale = 0.6
+texture_scale = 1.5
 
 [node name="BlueGlasses" type="PointLight2D" parent="AnimatedSprite2D"]
 visible = false
 position = Vector2(17, 12)
 color = Color(0, 0.390625, 1, 1)
-energy = 3.0
 blend_mode = 2
-texture = ExtResource("10_yeksd")
+texture = ExtResource("10_7nkp3")
 offset = Vector2(-16.5753, 3.4617)
-texture_scale = 0.6
+texture_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
