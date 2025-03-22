@@ -10,7 +10,11 @@ const AIR_FRICTION = 5.0
 @export var green_glass: PointLight2D
 @export var blue_glass: PointLight2D
 
-var current_glass = "red"
+var has_red_glass: bool = false
+var has_green_glass: bool = false
+var has_blue_glass: bool = false
+
+var current_glass = ""
 var direction = 0
 
 func _process(_delta):
@@ -21,14 +25,17 @@ func _process(_delta):
                 red_glass.visible = false
                 green_glass.visible = true
                 current_glass = "green"
+                Musics.set_music_piano()
             "green":
                 green_glass.visible = false
                 blue_glass.visible = true
                 current_glass = "blue"
+                Musics.set_music_bossa()
             "blue":
                 blue_glass.visible = false
                 red_glass.visible = true
                 current_glass = "red"
+                Musics.set_music_rock()
 
     if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
         set_collision_mask_value(2, false)

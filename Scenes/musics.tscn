@@ -1,20 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://dol5gjska8ojk"]
+[gd_scene load_steps=5 format=3 uid="uid://dol5gjska8ojk"]
 
+[ext_resource type="Script" path="res://Scripts/musics.gd" id="1_8e1gb"]
 [ext_resource type="AudioStream" uid="uid://b3e3omyjfs2ts" path="res://Source/Music/main loop jogo.mp3" id="1_17pwc"]
 [ext_resource type="AudioStream" uid="uid://wc3flbgwis1q" path="res://Source/Music/bossa nova jogo.mp3" id="2_dq5j4"]
 [ext_resource type="AudioStream" uid="uid://bnboinlev8nm7" path="res://Source/Music/rock jogo.mp3" id="3_q0lkh"]
 
-[node name="Musics" type="Node"]
+[node name="Musics" type="Node" node_paths=PackedStringArray("current_music")]
+script = ExtResource("1_8e1gb")
+transition_time = 0.7
+current_music = NodePath("calm_piano")
 
 [node name="calm_piano" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("1_17pwc")
-bus = &"Music"
+autoplay = true
+bus = &"Piano"
 
 [node name="pop_bossa" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("2_dq5j4")
+volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"Bossa"
 
 [node name="heavy_rock" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("3_q0lkh")
-bus = &"Music"
+volume_db = -80.0
+autoplay = true
+bus = &"Rock"
