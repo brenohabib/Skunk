@@ -14,6 +14,7 @@ var current_glass = "red"
 var direction = 0
 
 func _process(_delta):
+    set_collision_mask_value(2, true)
     if Input.is_action_just_pressed("switch_glasses"):
         match current_glass:
             "red":
@@ -28,6 +29,9 @@ func _process(_delta):
                 blue_glass.visible = false
                 red_glass.visible = true
                 current_glass = "red"
+
+    if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
+        set_collision_mask_value(2, false)
 
 # func _physics_process(delta: float) -> void:
 

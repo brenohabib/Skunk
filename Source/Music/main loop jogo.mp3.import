@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3e3omyjfs2ts"
+path="res://.godot/imported/main loop jogo.mp3-2c45d84b17c3f6687f746b4c264170c2.mp3str"
+
+[deps]
+
+source_file="res://Source/Music/main loop jogo.mp3"
+dest_files=["res://.godot/imported/main loop jogo.mp3-2c45d84b17c3f6687f746b4c264170c2.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=70.0
+beat_count=32
+bar_beats=4

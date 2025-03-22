@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wc3flbgwis1q"
+path="res://.godot/imported/bossa nova jogo.mp3-28c98fa83546f271bdc76a155ce68f28.mp3str"
+
+[deps]
+
+source_file="res://Source/Music/bossa nova jogo.mp3"
+dest_files=["res://.godot/imported/bossa nova jogo.mp3-28c98fa83546f271bdc76a155ce68f28.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=140.0
+beat_count=64
+bar_beats=8

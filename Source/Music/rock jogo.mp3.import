@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnboinlev8nm7"
+path="res://.godot/imported/rock jogo.mp3-8f3e31f3d608214339842c89ce039c64.mp3str"
+
+[deps]
+
+source_file="res://Source/Music/rock jogo.mp3"
+dest_files=["res://.godot/imported/rock jogo.mp3-8f3e31f3d608214339842c89ce039c64.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=140.0
+beat_count=32
+bar_beats=8

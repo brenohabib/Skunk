@@ -13,7 +13,7 @@ func physics_process_state(delta: float) -> void:
 func check_transitions() -> String:
     if abs(character.velocity.x) < 10 and character.direction == 0:
         return "IdleState"
-    if Input.is_action_pressed("jump") and character.is_on_floor():
+    if Input.is_action_pressed("jump") and !Input.is_action_pressed("move_down") and character.is_on_floor():
         return "JumpState"
     if !character.is_on_floor() and character.velocity.y > 0:
         return "FallState"
