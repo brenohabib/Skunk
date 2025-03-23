@@ -332,6 +332,9 @@ position = Vector2(1415, -24)
 [node name="SavePoint3" parent="." instance=ExtResource("15_8hatk")]
 position = Vector2(3198, -24)
 
+[node name="SavePoint4" parent="." instance=ExtResource("15_8hatk")]
+position = Vector2(4355, -25)
+
 [node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
 position = Vector2(4299, -70)
 collision_mask = 3
@@ -464,12 +467,13 @@ offset = Vector2(-16.5753, 3.4617)
 texture_scale = 50.0
 metadata/_edit_lock_ = true
 
-[node name="death_area" type="Area2D" parent="." node_paths=PackedStringArray("checkpoint", "checkpoint1", "respawn_point")]
+[node name="death_area" type="Area2D" parent="." node_paths=PackedStringArray("checkpoint", "checkpoint1", "checkpoint2", "checkpoint3", "respawn_point")]
 script = ExtResource("16_h6vsb")
 checkpoint = NodePath("../SavePoint")
 checkpoint1 = NodePath("../SavePoint2")
+checkpoint2 = NodePath("../SavePoint3")
+checkpoint3 = NodePath("../SavePoint4")
 respawn_point = NodePath("../SavePoint")
-auto_respawn = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="death_area"]
 position = Vector2(461, -29)
@@ -517,5 +521,6 @@ visible = false
 [connection signal="body_exited" from="Daibo/Interactable" to="Daibo/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="SavePoint" to="death_area" method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="SavePoint2" to="death_area" method="_on_save_point_2_body_entered"]
-[connection signal="body_entered" from="SavePoint3" to="death_area" method="_on_save_point_2_body_entered"]
+[connection signal="body_entered" from="SavePoint3" to="death_area" method="_on_save_point_3_body_entered"]
+[connection signal="body_entered" from="SavePoint4" to="death_area" method="_on_save_point_4_body_entered"]
 [connection signal="body_entered" from="death_area" to="death_area" method="_on_body_entered"]
