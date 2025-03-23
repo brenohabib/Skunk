@@ -17,3 +17,7 @@ func _on_save_point_body_entered(_body:Node2D) -> void:
 
 func _on_save_point_2_body_entered(_body:Node2D) -> void:
     respawn_point = checkpoint1
+
+func _on_ice_spik_body_entered(body:Node2D) -> void:
+    if auto_respawn and respawn_point != null:
+        body.global_position = respawn_point.global_position
