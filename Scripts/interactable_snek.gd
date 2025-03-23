@@ -5,13 +5,19 @@ extends Area2D
 @export var dialogue: Label
 @export var skunk: Skunk
 
-var dialogue_lines = [
-	"You may think I'm a tree...",
-	"Come closer and you may see...",
-	"Behold, one of the chroma fragments",
-	"You may see nature from now on",
-	"Please, restore the color back to our world!"
+var dialogue_peak = [
+    "I'm the greatesssssss ssword in the world!",
+    "Wait... You can sssssee me?",
+    "That means you're different... or maybe jussst broken enough to notice.",
+    "No one elsse bothers with a talking ssssnake these days.",
+    "Lisssten, traveler, the world is blind, drowned in black and white.",
+    "But I have a gift... a key to what was losssst.",
+    "Take thisss, litte gray creature",
+    "Put it over your eye and you'll sssee what othersss cannot.",
+	"Oh, before I forget",
+	"You can change between lens pressing [TAB]"
 ]
+
 
 var current_dialogue_index = 0
 var is_dialogue_active = false
@@ -40,8 +46,8 @@ func _input(_event: InputEvent) -> void:
 		advance_dialogue()
 
 func show_dialogue_line() -> void:
-	if current_dialogue_index < dialogue_lines.size():
-		dialogue.text = dialogue_lines[current_dialogue_index] + "[E]"
+	if current_dialogue_index < dialogue_peak.size():
+		dialogue.text = dialogue_peak[current_dialogue_index] + "[E]"
 	else:
 		end_dialogue()
 
@@ -49,16 +55,15 @@ func advance_dialogue() -> void:
 	current_dialogue_index += 1
 	
 	# Verificar se ainda há mais linhas
-	if current_dialogue_index < dialogue_lines.size():
+	if current_dialogue_index < dialogue_peak.size():
 		show_dialogue_line()
 	else:
 		self.set_collision_mask_value(1, false)
 		end_dialogue()
-	
-	if current_dialogue_index == 2:
-		skunk.acquire_glass("green")
-		skunk.equip_glass("green")
-		Musics.set_music_piano()
+	if current_dialogue_index == 6:
+		skunk.acquire_glass("blue")
+		skunk.equip_glass("blue")
+		Musics.set_music_bossa()
 
 func end_dialogue() -> void:
 	dialogue_container.hide()
