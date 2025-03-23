@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi1n858ys66m1"
-path="res://.godot/imported/fonte.png-f1e0d25ec91c2b68dd66ae0440713675.ctex"
+uid="uid://dd28u8jvcinah"
+path="res://.godot/imported/daibo.png-17b65865c4fa35d29680248e0aca4da7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Source/El Gambas/fonte.png"
-dest_files=["res://.godot/imported/fonte.png-f1e0d25ec91c2b68dd66ae0440713675.ctex"]
+source_file="res://Source/El Gambas/daibo.png"
+dest_files=["res://.godot/imported/daibo.png-17b65865c4fa35d29680248e0aca4da7.ctex"]
 
 [params]
 
