@@ -8,7 +8,7 @@ extends Node
 @export var current_music: AudioStreamPlayer = null
 
 func _ready() -> void:
-    piano.volume_db = 0.0
+    piano.volume_db = -80.0
     bossa.volume_db = -80.0
     rock.volume_db = -80.0
 

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Skunk
 
 const SPEED = 140.0
 const JUMP_VELOCITY = 340.0
@@ -16,42 +17,80 @@ var has_blue_glass: bool = false
 
 var current_glass = ""
 var direction = 0
+var available_glasses = []
+
+func _ready():
+    red_glass.visible = false
+    green_glass.visible = false
+    blue_glass.visible = false
+    update_available_glasses()
 
 func _process(_delta):
     set_collision_mask_value(2, true)
-    if Input.is_action_just_pressed("switch_glasses"):
-        match current_glass:
-            "red":
-                red_glass.visible = false
-                green_glass.visible = true
-                current_glass = "green"
-                Musics.set_music_piano()
-            "green":
-                green_glass.visible = false
-                blue_glass.visible = true
-                current_glass = "blue"
-                Musics.set_music_bossa()
-            "blue":
-                blue_glass.visible = false
-                red_glass.visible = true
-                current_glass = "red"
-                Musics.set_music_rock()
+    
+    if Input.is_action_just_pressed("switch_glasses") and available_glasses.size() > 0:
+        switch_to_next_glass()
 
-    if Input.is_action_pressed("move_down") and Input.is_action_pressed("jump"):
-        set_collision_mask_value(2, false)
+# Atualiza a lista de óculos disponíveis com base nas flags
+func update_available_glasses():
+    available_glasses.clear()
+    
+    if has_red_glass:
+        available_glasses.append("red")
+    if has_green_glass:
+        available_glasses.append("green")
+    if has_blue_glass:
+        available_glasses.append("blue")
+        
+    # Se não tinha nenhum óculos atual mas agora tem algum disponível
+    if current_glass == "" and available_glasses.size() > 0:
+        equip_glass(available_glasses[0])
 
-# func _physics_process(delta: float) -> void:
+# Alterna para o próximo óculos disponível na lista
+func switch_to_next_glass():
+    if available_glasses.size() <= 1:
+        return
+    
+    var current_index = available_glasses.find(current_glass)
+    
+    # Calcula o próximo índice
+    var next_index = (current_index + 1) % available_glasses.size()
+    equip_glass(available_glasses[next_index])
 
-# 	if not is_on_floor():
-# 		velocity += get_gravity() * delta
+# Equipa um óculos específico
+func equip_glass(glass_type):
+    red_glass.visible = false
+    green_glass.visible = false
+    blue_glass.visible = false
+    
+    match glass_type:
+        "red":
+            red_glass.visible = true
+            current_glass = "red"
+            Musics.set_music_rock()
+        "green":
+            green_glass.visible = true
+            current_glass = "green"
+            Musics.set_music_piano()
+        "blue":
+            blue_glass.visible = true
+            current_glass = "blue"
+            Musics.set_music_bossa()
 
-# 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-# 		velocity.y = JUMP_VELOCITY
-
-# 	direction = Input.get_axis("ui_left", "ui_right")
-# 	if direction:
-# 		velocity.x = direction * SPEED
-# 	else:
-# 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-# 	move_and_slide()
+func acquire_glass(glass_type):
+    match glass_type:
+        "red":
+            has_red_glass = true
+            Musics.set_music_rock()
+        "green":
+            has_green_glass = true
+            Musics.set_music_piano()
+        "blue":
+            has_blue_glass = true
+            Musics.set_music_bossa()
+    
+    update_available_glasses()
+    
+    # Se for o primeiro óculos adquirido, equipa-o automaticamente
+    if current_glass == "":
+        equip_glass(glass_type)

@@ -8,7 +8,7 @@
 [node name="Musics" type="Node" node_paths=PackedStringArray("current_music")]
 script = ExtResource("1_8e1gb")
 transition_time = 0.7
-current_music = NodePath("calm_piano")
+current_music = NodePath("heavy_rock")
 
 [node name="calm_piano" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
