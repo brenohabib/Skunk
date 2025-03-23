@@ -6,26 +6,29 @@ extends Area2D
 @export var skunk: Skunk
 
 var dialogue_lines = [
-	"You may think I'm a tree...[E]",
-	"Come closer and you may see...[E]",
-	"Behold, one of the chroma fragments[E]",
-	"You may see nature from now on[E]",
-	"Please, restore the color back to our world![E]"
+	"You may think I'm a tree...",
+	"Come closer and you may see...",
+	"Behold, one of the chroma fragments",
+	"You may see nature from now on",
+	"Please, restore the color back to our world!"
 ]
 
 var current_dialogue_index = 0
 var is_dialogue_active = false
+var is_inside_area = false
 
 func _on_body_exited(_body:Node2D) -> void:
 	interact_menu.hide()
 	dialogue_container.hide()
 	is_dialogue_active = false
+	is_inside_area = false
 
 func _on_body_entered(_body:Node2D) -> void:
+	is_inside_area = true
 	interact_menu.show()
 
 func _input(_event: InputEvent) -> void:
-	if interact_menu.visible == true and Input.is_action_just_pressed("interact"):
+	if is_inside_area and Input.is_action_just_pressed("interact") and !is_dialogue_active:
 		interact_menu.hide()
 		dialogue_container.show()
 		is_dialogue_active = true
@@ -38,7 +41,7 @@ func _input(_event: InputEvent) -> void:
 
 func show_dialogue_line() -> void:
 	if current_dialogue_index < dialogue_lines.size():
-		dialogue.text = dialogue_lines[current_dialogue_index]
+		dialogue.text = dialogue_lines[current_dialogue_index] + "[E]"
 	else:
 		end_dialogue()
 

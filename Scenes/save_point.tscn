@@ -31,7 +31,7 @@ scale_min = 2.0
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_3p20a")
 
-[node name="SavePoint" type="Node2D"]
+[node name="SavePoint" type="Area2D"]
 script = ExtResource("1_fhyki")
 
 [node name="Post" type="Sprite2D" parent="."]
@@ -46,9 +46,7 @@ range_item_cull_mask = 7
 texture = ExtResource("3_1eef0")
 texture_scale = 0.1
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_b2smb")
 
@@ -60,5 +58,4 @@ process_material = SubResource("ParticleProcessMaterial_tn2o7")
 lifetime = 3.0
 preprocess = 2.0
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
