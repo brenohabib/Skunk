@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Skunk
 
-const SPEED = 140.0
+const SPEED = 130.0
 const JUMP_VELOCITY = 340.0
 const ACELERATION = 15.0
 const FRICTION = 20.0

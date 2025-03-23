@@ -8,18 +8,13 @@ extends Node
 @export var current_music: AudioStreamPlayer = null
 
 func _ready() -> void:
-    piano.volume_db = -80.0
-    bossa.volume_db = -80.0
-    rock.volume_db = -80.0
+    mute()
 
     piano.play()
     bossa.play()
     rock.play()
 
 func transition_to(new_music: AudioStreamPlayer) -> void:
-    if current_music == new_music:
-        return
-
     var tween = create_tween()
 
     if current_music != null:
@@ -37,3 +32,8 @@ func set_music_bossa() -> void:
 
 func set_music_rock() -> void:
     transition_to(rock)
+
+func mute() -> void:
+    piano.volume_db = -80.0
+    bossa.volume_db = -80.0
+    rock.volume_db = -80.0
