@@ -125,7 +125,6 @@ _data = {
 }
 
 [node name="fir" type="Area2D"]
-collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 4

@@ -5,8 +5,11 @@ extends Area2D
 @export var dialogue: Label
 @export var skunk: Skunk
 
+@export var fire_collisions: StaticBody2D
+@export var mmmaha: Area2D
+
 var dialogue_peak = [
-    "I was watching you from afar...",
+	"I was watching you from afar...",
 	"Impressive skills you've got on your pocket",
 	"Why am I red like blood?",
 	"I'm a demon!",
@@ -20,7 +23,6 @@ var dialogue_peak = [
 	"Give him all the chroma fragments",
 	"He'll merge them all into a single one"
 ]
-
 
 var current_dialogue_index = 0
 var is_dialogue_active = false
@@ -67,6 +69,8 @@ func advance_dialogue() -> void:
 		skunk.acquire_glass("red")
 		skunk.equip_glass("red")
 		Musics.set_music_rock()
+		fire_collisions.set_collision_layer_value(1, true)
+		mmmaha.monitoring = true
 
 func end_dialogue() -> void:
 	dialogue_container.hide()

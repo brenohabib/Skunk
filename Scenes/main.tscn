@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://c7sueg17piq35"]
+[gd_scene load_steps=38 format=4 uid="uid://c7sueg17piq35"]
 
 [ext_resource type="PackedScene" uid="uid://usmcruf2aevi" path="res://Scenes/skunk.tscn" id="1_xfedl"]
 [ext_resource type="TileSet" uid="uid://ctarq0eu15e35" path="res://Source/El Gambas/main_tileset.tres" id="2_44hai"]
@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://b7dpwq2a5l0pj" path="res://Source/El Gambas/sapo.png" id="7_0rohv"]
 [ext_resource type="PackedScene" uid="uid://dwbebmpwh6jug" path="res://Scenes/interact.tscn" id="8_2f2ep"]
 [ext_resource type="Script" path="res://Scripts/interactable_peak.gd" id="8_bljc5"]
+[ext_resource type="Script" path="res://Scripts/hmmaahaaa.gd" id="8_eres7"]
 [ext_resource type="Script" path="res://Scripts/interactable_snek.gd" id="9_eh0th"]
 [ext_resource type="Texture2D" uid="uid://ctolsrwgwid4t" path="res://Source/El Gambas/snek.png" id="10_36kbd"]
+[ext_resource type="VideoStream" path="res://Source/El Gambas/frog-jump.ogv" id="10_ovirx"]
 [ext_resource type="Texture2D" uid="uid://cfe2l01ooc4ox" path="res://Source/El Gambas/nuvs/nuvs1.png" id="11_8mwpv"]
 [ext_resource type="Shader" path="res://Scripts/daibo_shader.gdshader" id="12_frr4y"]
 [ext_resource type="Texture2D" uid="uid://dd28u8jvcinah" path="res://Source/El Gambas/daibo.png" id="12_ponm1"]
@@ -159,38 +161,30 @@ position = Vector2(2559, -23)
 
 [node name="fir" parent="." instance=ExtResource("5_7d34h")]
 position = Vector2(4177, -24)
-collision_layer = 1
 
 [node name="fir2" parent="." instance=ExtResource("5_7d34h")]
 position = Vector2(3972, -24)
-collision_layer = 1
 
 [node name="fir3" parent="." instance=ExtResource("5_7d34h")]
 position = Vector2(3926, -22)
-collision_layer = 1
 
 [node name="fir4" parent="." instance=ExtResource("5_7d34h")]
 position = Vector2(3949, -147)
 rotation = 3.14159
-collision_layer = 1
 
 [node name="fir5" parent="." instance=ExtResource("5_7d34h")]
-position = Vector2(3707, -27)
-collision_layer = 1
+position = Vector2(3481, -27)
 
 [node name="fir6" parent="." instance=ExtResource("5_7d34h")]
-position = Vector2(3661, -25)
-collision_layer = 1
+position = Vector2(3435, -25)
 
 [node name="fir7" parent="." instance=ExtResource("5_7d34h")]
-position = Vector2(3684, -150)
+position = Vector2(3458, -150)
 rotation = 3.14159
-collision_layer = 1
 
 [node name="fir8" parent="." instance=ExtResource("5_7d34h")]
-position = Vector2(3178, -117)
+position = Vector2(3129, -113)
 rotation = 3.14159
-collision_layer = 1
 
 [node name="Sapo" type="Sprite2D" parent="."]
 material = ExtResource("16_hjp4p")
@@ -210,6 +204,23 @@ skunk = NodePath("../../Skunk")
 position = Vector2(48.5, 37.5)
 shape = SubResource("CircleShape2D_5hecg")
 
+[node name="HMMAAHAAA" type="Area2D" parent="Sapo" node_paths=PackedStringArray("interact_menu", "dialogue_container", "dialogue", "skunk", "red", "green", "blue", "timer", "vid")]
+monitoring = false
+script = ExtResource("8_eres7")
+interact_menu = NodePath("../../Interact_menu")
+dialogue_container = NodePath("../PanelContainer")
+dialogue = NodePath("../PanelContainer/Label")
+skunk = NodePath("../../Skunk")
+red = NodePath("../../RedGlasses")
+green = NodePath("../../GreenGlasses")
+blue = NodePath("../../BlueGlasses")
+timer = NodePath("../../BoxContainer/Timer")
+vid = NodePath("../../BoxContainer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sapo/HMMAAHAAA"]
+position = Vector2(48.5, 37.5)
+shape = SubResource("CircleShape2D_5hecg")
+
 [node name="PanelContainer" type="PanelContainer" parent="Sapo"]
 visible = false
 offset_left = 10.5
@@ -222,6 +233,30 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_eauik")
 theme_override_font_sizes/font_size = 4
 text = "Placeholder"
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = 72.0
+offset_right = -131.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BoxContainer"]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 2
+stream = ExtResource("10_ovirx")
+volume_db = -8.0
+
+[node name="Timer" type="Timer" parent="BoxContainer"]
+wait_time = 2.0
+one_shot = true
 
 [node name="Arvores" type="Sprite2D" parent="."]
 material = ExtResource("16_hjp4p")
@@ -296,13 +331,15 @@ position = Vector2(4417, 13)
 scale = Vector2(2, 2)
 texture = ExtResource("12_ponm1")
 
-[node name="Interactable" type="Area2D" parent="Daibo" node_paths=PackedStringArray("interact_menu", "dialogue_container", "dialogue", "skunk")]
+[node name="Interactable" type="Area2D" parent="Daibo" node_paths=PackedStringArray("interact_menu", "dialogue_container", "dialogue", "skunk", "fire_collisions", "mmmaha")]
 position = Vector2(-657, -16)
 script = ExtResource("14_3qx3i")
 interact_menu = NodePath("../../Interact_menu")
 dialogue_container = NodePath("../PanelContainer")
 dialogue = NodePath("../PanelContainer/Label")
 skunk = NodePath("../../Skunk")
+fire_collisions = NodePath("../../FireColision/StaticBody2D")
+mmmaha = NodePath("../../Sapo/HMMAAHAAA")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Daibo/Interactable"]
 position = Vector2(650, -10.5)
@@ -330,13 +367,13 @@ position = Vector2(235, -25)
 position = Vector2(1415, -24)
 
 [node name="SavePoint3" parent="." instance=ExtResource("15_8hatk")]
-position = Vector2(3198, -24)
+position = Vector2(3238, -24)
 
 [node name="SavePoint4" parent="." instance=ExtResource("15_8hatk")]
 position = Vector2(4355, -25)
 
 [node name="Skunk" parent="." instance=ExtResource("1_xfedl")]
-position = Vector2(4299, -70)
+position = Vector2(-199, -33)
 collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Skunk"]
@@ -386,6 +423,7 @@ shape = SubResource("WorldBoundaryShape2D_puat5")
 [node name="FireColision" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FireColision"]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireColision/StaticBody2D"]
 position = Vector2(4177, -37.5)
@@ -396,7 +434,7 @@ position = Vector2(3949, -37.75)
 shape = SubResource("RectangleShape2D_ucmp6")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="FireColision/StaticBody2D"]
-position = Vector2(3684, -40.375)
+position = Vector2(3458, -40.375)
 shape = SubResource("RectangleShape2D_ucmp6")
 
 [node name="ParallaxLayer" type="Parallax2D" parent="."]
@@ -513,11 +551,16 @@ visible = false
 [connection signal="body_entered" from="fir8" to="death_area" method="_on_fir_body_entered"]
 [connection signal="body_entered" from="Sapo/Interactable" to="Sapo/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="Sapo/Interactable" to="Sapo/Interactable" method="_on_body_exited"]
+[connection signal="body_entered" from="Sapo/HMMAAHAAA" to="Sapo/HMMAAHAAA" method="_on_body_entered"]
+[connection signal="body_exited" from="Sapo/HMMAAHAAA" to="Sapo/HMMAAHAAA" method="_on_body_exited"]
+[connection signal="finished" from="BoxContainer/VideoStreamPlayer" to="Sapo/HMMAAHAAA" method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="BoxContainer/Timer" to="Sapo/HMMAAHAAA" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Arvores/Interactable" to="Arvores/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="Arvores/Interactable" to="Arvores/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="Snek/Interactable" to="Snek/Interactable" method="_on_body_entered"]
 [connection signal="body_exited" from="Snek/Interactable" to="Snek/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="Daibo/Interactable" to="Daibo/Interactable" method="_on_body_entered"]
+[connection signal="body_entered" from="Daibo/Interactable" to="death_area" method="_on_death_body_entered"]
 [connection signal="body_exited" from="Daibo/Interactable" to="Daibo/Interactable" method="_on_body_exited"]
 [connection signal="body_entered" from="SavePoint" to="death_area" method="_on_save_point_body_entered"]
 [connection signal="body_entered" from="SavePoint2" to="death_area" method="_on_save_point_2_body_entered"]

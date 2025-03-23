@@ -5,17 +5,19 @@ extends Area2D
 @export var dialogue: Label
 @export var skunk: Skunk
 
-var dialogue_peak = [
-    "I'm the greatesssssss ssword in the world!",
-    "Wait... You can sssssee me?",
-    "That means you're different... or maybe jussst broken enough to notice.",
-    "No one elsse bothers with a talking ssssnake these days.",
-    "Lisssten, traveler, the world is blind, drowned in black and white.",
-    "But I have a gift... a key to what was losssst.",
-    "Take thisss, litte gray creature",
-    "Put it over your eye and you'll sssee what othersss cannot.",
-	"Oh, before I forget",
-	"You can change between lens pressing [TAB]"
+@export var red: PointLight2D
+@export var green: PointLight2D
+@export var blue: PointLight2D
+
+@export var timer: Timer
+@export var vid: BoxContainer
+
+var dialogue_lines = [
+	"Oh... is these...",
+	"It couldn't be",
+	"Let me try this...",
+	"Vuala!",
+	"And now?"
 ]
 
 var current_dialogue_index = 0
@@ -45,8 +47,8 @@ func _input(_event: InputEvent) -> void:
 		advance_dialogue()
 
 func show_dialogue_line() -> void:
-	if current_dialogue_index < dialogue_peak.size():
-		dialogue.text = dialogue_peak[current_dialogue_index] + "[E]"
+	if current_dialogue_index < dialogue_lines.size():
+		dialogue.text = dialogue_lines[current_dialogue_index] + "[E]"
 	else:
 		end_dialogue()
 
@@ -54,16 +56,26 @@ func advance_dialogue() -> void:
 	current_dialogue_index += 1
 	
 	# Verificar se ainda há mais linhas
-	if current_dialogue_index < dialogue_peak.size():
+	if current_dialogue_index < dialogue_lines.size():
 		show_dialogue_line()
 	else:
 		self.set_collision_mask_value(1, false)
 		end_dialogue()
-	if current_dialogue_index == 6:
-		skunk.acquire_glass("blue")
-		skunk.equip_glass("blue")
-		Musics.set_music_bossa()
+
+	if current_dialogue_index == 3:
+		red.show()
+		green.show()
+		blue.show()
 
 func end_dialogue() -> void:
 	dialogue_container.hide()
 	is_dialogue_active = false
+	timer.start()
+
+func _on_timer_timeout() -> void:
+	vid.show()
+	vid.get_child(0).play()
+
+
+func _on_video_stream_player_finished() -> void:
+	get_tree().quit()
